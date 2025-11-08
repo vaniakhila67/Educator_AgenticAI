@@ -6,9 +6,11 @@ pip install --upgrade pip setuptools wheel
 
 # Install requirements based on service type
 if [ "$RENDER_SERVICE_TYPE" = "web" ]; then
-    if [ "$RENDER_START_COMMAND" = "streamlit run frontend/app.py" ]; then
-        pip install -r requirements-frontend.txt
+    if echo "$RENDER_START_COMMAND" | grep -q "streamlit"; then
+        # Use simplified frontend requirements
+        pip install -r requirements-frontend-render.txt
     else
-        pip install -r requirements.txt
+        # Use simplified backend requirements
+        pip install -r requirements-render.txt
     fi
 fi

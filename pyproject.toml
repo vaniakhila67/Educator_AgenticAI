@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=65", "wheel", "pip"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "educator-agentic-ai"
+version = "1.0.0"
+description = "Agentic AI Professional Development Coach for Educators"
+readme = "README.md"
+requires-python = ">=3.11"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
+exclude = ["tests*"]
